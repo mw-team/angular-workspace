@@ -1,0 +1,26 @@
+{
+  "name": "dawn",
+  "version": "0.0.0",
+  "description": "Dawn is typical js workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mw-team/dawn.git"
+  },
+  "keywords": [
+    "dawn",
+    "workflow",
+    "js",
+    "project",
+    "scafold"
+  ],
+  "author": "https://github.com/mw-team/dawn/graphs/contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mw-team/dawn/issues"
+  },
+  "homepage": "https://github.com/mw-team/dawn#readme"
+}
