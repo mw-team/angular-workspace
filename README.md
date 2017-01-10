@@ -1,2 +1,2 @@
 # dawn
-Dawn is typical js workflow
+Dawn is typical Angular 2 library workflow
