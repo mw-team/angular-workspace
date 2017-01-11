@@ -55,7 +55,7 @@ task(':build:components:assets:minify', () => {
 /** Builds scss into css. */
 task(':build:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT, COMPONENTS_DIR));
 
-/** Builds the UMD bundle for all of Angular Material. */
+/** Builds the UMD bundle for all of Angular components. */
 task(':build:components:rollup', () => {
   const globals: {[name: string]: string} = {
     // Angular dependencies
