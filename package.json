@@ -1,6 +1,6 @@
 {
   "name": "dawn",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Dawn is typical Angular 2 library workflow",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
