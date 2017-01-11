@@ -1,0 +1,9 @@
+*.html  eol=lf
+*.styl  eol=lf
+*.scss  eol=lf
+*.css   eol=lf
+*.ts    eol=lf
+*.js    eol=lf
+*.md    eol=lf
+*.json  eol=lf
+*.yml   eol=lf
