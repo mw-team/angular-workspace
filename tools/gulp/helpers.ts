@@ -145,6 +145,45 @@ export function cleanTask(glob: string) {
 }
 
 
+/** Build an task that depends on all application build tasks. */
+export function buildAppTask(appName: string) {
+  const buildTasks = ['vendor', 'ts', 'scss', 'assets']
+    .map(taskName => `:build:${appName}:${taskName}`);
+
+  return (done: () => void) => {
+    gulpRunSequence(
+      'clean',
+      'build:components',
+      [...buildTasks],
+      done
+    );
+  };
+}
+
+
+/** Create a task that copies vendor files in the proper destination. */
+export function vendorTask() {
+  return () => gulpMerge(
+    NPM_VENDOR_FILES.map(root => {
+      const glob = path.join(PROJECT_ROOT, 'node_modules', root, '**/*.+(js|js.map)');
+      return gulp.src(glob).pipe(gulp.dest(path.join(DIST_ROOT, 'vendor', root)));
+    }));
+}
+
+
+/** Create a task that serves the dist folder. */
+export function serverTask(livereload = true) {
+  return () => {
+    gulpConnect.server({
+      root: resolve(DIST_ROOT, '/'),
+      livereload: livereload,
+      port: 4200,
+      fallback: resolve(DIST_ROOT, '/index.html')
+    });
+  };
+}
+
+
 /** Triggers a reload when livereload is enabled and a gulp-connect server is running. */
 export function triggerLivereload() {
   gulp.src(DIST_ROOT).pipe(gulpConnect.reload());
