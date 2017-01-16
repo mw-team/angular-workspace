@@ -1,27 +1,31 @@
 {
-  "name": "dawn",
+  "name": "angular-workspace",
   "version": "1.0.0-alpha.0",
-  "description": "Dawn is typical Angular 2 library workflow",
+  "description": "Angular Workspace is typical Angular 2 library workspace",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mw-team/dawn.git"
+    "url": "git+https://github.com/mw-team/angular-workspace.git"
   },
   "keywords": [
-    "dawn",
-    "workflow",
+    "angular",
+    "angular 2",
     "js",
+    "lib",
+    "library",
     "project",
-    "scafold"
+    "scafold",
+    "template",
+    "workspace"
   ],
-  "author": "https://github.com/mw-team/dawn/graphs/contributors",
+  "author": "https://github.com/mw-team/angular-workspace/graphs/contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mw-team/dawn/issues"
+    "url": "https://github.com/mw-team/angular-workspace/issues"
   },
-  "homepage": "https://github.com/mw-team/dawn#readme",
+  "homepage": "https://github.com/mw-team/angular-workspace#readme",
   "engines": {
     "node": ">= 5.4.1 < 7"
   },

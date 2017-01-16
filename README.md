@@ -1,2 +1,2 @@
-# dawn
-Dawn is typical Angular 2 library workflow
+# angular-workspace
+Angular Workspace is typical Angular 2 library workspace
