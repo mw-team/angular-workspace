@@ -46,7 +46,7 @@ function _execNpmPublish(label: string): Promise<{}> {
   }
 
   process.chdir(packageDir);
-  console.log(`Publishing material...`);
+  console.log(`Publishing project...`);
 
   const command = 'npm';
   const args = ['publish', '--access', 'public', label ? `--tag` : undefined, label || undefined];
@@ -87,7 +87,7 @@ task(':publish', function(done: (err?: any) => void) {
   }
   console.log('\n\n');
 
-  // Publish only the material package.
+  // Publish only the project package.
   return _execNpmPublish(label)
     .then(() => done())
     .catch((err: Error) => done(err))

@@ -23,6 +23,7 @@ export const dirs = Object.freeze({
     dgeni: join(PROJECT_ROOT, 'tools/dgeni'),
     gulp: join(PROJECT_ROOT, 'tools/gulp'),
     lint: join(PROJECT_ROOT, 'tools/lint'),
+    test: join(PROJECT_ROOT, 'tools/test'),
   },
 });
 
