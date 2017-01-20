@@ -27,8 +27,14 @@ export const dirs = Object.freeze({
   },
 });
 
-/** If the string passed in is a glob, returns it, otherwise append '**\/*' to it. */
-export function resolve(maybeGlob: string, ...paths: string[]) {
+/**
+ * If the string passed in is a glob, returns it,
+ * otherwise append '**\/*' to it.
+ * @param  {string}   maybeGlob [path to resolved directory]
+ * @param  {string[]} ...paths  [path segments to append]
+ * @return {string}             [resolved path pattern]
+ */
+export function resolve(maybeGlob: string, ...paths: string[]): string {
   if (maybeGlob.indexOf('*') != -1) {
     return maybeGlob;
   }
