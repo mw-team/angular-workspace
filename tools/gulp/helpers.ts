@@ -6,16 +6,18 @@ import * as gulpTs from 'gulp-typescript';
 import * as path from 'path';
 
 import {NPM_VENDOR_FILES, SASS_AUTOPREFIXER_OPTIONS} from './settings/constants';
-import {PROJECT_ROOT, DIST_ROOT, resolve} from './settings/paths';
+import {PROJECT_ROOT, DIST_ROOT, dirs, resolve} from './settings/paths';
 
 
 /** Those imports lack typings. */
+const clangFormat = require('clang-format');
+const gulpAutoprefixer = require('gulp-autoprefixer');
 const gulpClean = require('gulp-clean');
+const gulpConnect = require('gulp-connect');
+const gulpFormat = require('gulp-clang-format');
 const gulpMerge = require('merge2');
 const gulpSass = require('gulp-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpAutoprefixer = require('gulp-autoprefixer');
-const gulpConnect = require('gulp-connect');
 const resolveBin = require('resolve-bin');
 
 
@@ -142,6 +144,35 @@ export function copyTask(srcGlobOrDir: string | string[], outRoot: string) {
 /** Delete files. */
 export function cleanTask(glob: string) {
   return () => gulp.src(glob, { read: false }).pipe(gulpClean(null));
+}
+
+/** Format files. */
+export function formatTask(readOnly: boolean = true) {
+  const sourceOptions = !readOnly ? {base: '.'} : {};
+  const filesPipe = getFormatSources(sourceOptions);
+
+  return () => {
+    let formatedFiles = null;
+    if (readOnly) {
+      formatedFiles = filesPipe.pipe(gulpFormat.checkFormat('file', clangFormat)).on('warning', () => {
+        console.log('NOTE: this will be promoted to an ERROR in the CI build');
+      });
+    } else {
+      formatedFiles = filesPipe.pipe(gulpFormat.format()).pipe(gulp.dest('.'));
+    }
+
+    return formatedFiles;
+  };
+}
+
+export function getFormatSources(options: any = {}) {
+  const settingFiles = resolve(dirs.tools.gulp, '**/*.ts');
+  const sourceFiles = resolve(dirs.components, '**/*.ts');
+
+  if (options == null) {
+    options = {};
+  }
+  return gulp.src([settingFiles, sourceFiles], options);
 }
 
 
