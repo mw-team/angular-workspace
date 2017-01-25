@@ -1,6 +1,6 @@
 {
   "name": "angular-workspace",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Angular Workspace is typical Angular 2 library workspace",
   "scripts": {
     "build": "gulp build:components",
