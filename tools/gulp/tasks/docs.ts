@@ -1,4 +1,4 @@
-import gulp = require('gulp');
+import * as gulp from 'gulp';
 import {task} from 'gulp';
 import * as path from 'path';
 
